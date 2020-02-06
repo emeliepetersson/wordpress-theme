@@ -5,9 +5,6 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-
     <?php wp_head(); ?>
 </head>
 
@@ -23,7 +20,15 @@
             <ul class="navbar-nav mr-auto">
 
                 <?php foreach (get_pages() as $page) : ?>
-                    <li class="nav-item">
+                    <li class="nav-item 
+                    <?php $obj_id = get_queried_object_id();
+                    $current_url = get_permalink($obj_id);
+
+                    // Add active state to current url
+                    if ($current_url === get_page_link($page->ID)) {
+                        echo "active";
+                    }; ?>
+                    ">
                         <a class="nav-link" href="<?php echo get_page_link($page->ID); ?>"><?php echo $page->post_title; ?></a>
                     </li>
                 <?php endforeach; ?>
