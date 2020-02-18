@@ -19,6 +19,7 @@ $latestPosts = get_posts($args);
 ?>
 
 <div class="col-8 content">
+    <h2>Blog posts!</h2>
     <?php foreach ($latestPosts as $post) : setup_postdata($post); ?>
         <h2><?php echo the_title(); ?></h2>
         <p><?php echo the_excerpt(); ?></p>
