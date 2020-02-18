@@ -24,3 +24,6 @@ function custom_stylesheet()
 
 // Call custom stylesheet function
 add_action('wp_enqueue_scripts', 'custom_stylesheet');
+
+// Enable featured image
+add_theme_support('post-thumbnails');

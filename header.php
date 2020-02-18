@@ -8,7 +8,16 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<?php
+if (is_front_page()) {
+    $awesome_classes = ['awesome-class', 'my-class'];
+} else {
+    $awesome_classes = ['no-awesome-class'];
+}
+
+?>
+
+<body <?php body_class($awesome_classes); ?>>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">wu19</a>
@@ -19,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                <?php foreach (get_pages() as $page) : ?>
+                <?php foreach (get_pages(['sort_column' =>  'menu_order']) as $page) : ?>
                     <li class="nav-item 
                     <?php $obj_id = get_queried_object_id();
                     $current_url = get_permalink($obj_id);
