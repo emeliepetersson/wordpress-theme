@@ -27,3 +27,23 @@ add_action('wp_enqueue_scripts', 'custom_stylesheet');
 
 // Enable featured image
 add_theme_support('post-thumbnails');
+
+// Register student custom post type.
+require get_template_directory() . "/post-types/student.php";
+
+// Register skill taxonomy for the student custom post type.
+require get_template_directory() . "/taxonomies/skill.php";
+
+// Register student field types for the student custom post type.
+require get_template_directory() . "/fields/student.php";
+
+/**
+ * Enable features from Soil when plugin is activated
+ * @link https://roots.io/plugins/soil/
+ */
+add_theme_support('soil-clean-up');
+add_theme_support('soil-disable-asset-versioning');
+add_theme_support('soil-disable-trackbacks');
+add_theme_support('soil-js-to-footer');
+add_theme_support('soil-nice-search');
+add_theme_support('soil-relative-urls');

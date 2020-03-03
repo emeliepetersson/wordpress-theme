@@ -8,15 +8,22 @@
 
             <h1><?php the_title(); ?></h1>
 
-            <p class="date"><?php the_date(); ?></p>
-
             <div class="thumbnail">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                     <?php the_post_thumbnail(); ?>
                 </a>
             </div>
 
+            <?php if (get_field('email')) : ?>
+                <p>contact: <a href="mailto:<?php the_field('email'); ?>"><?php the_field('email'); ?></a></p>
+            <?php endif; ?>
+
+            <?php if (get_field('github_profile')) : ?>
+                <p>contact: <a href="<?php the_field('github_profile'); ?>"><?php the_field('github_profile'); ?></a></p>
+            <?php endif; ?>
+
             <?php the_content(); ?>
+
 
             <div class="d-flex justify-content-between">
                 <div>
