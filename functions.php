@@ -47,3 +47,8 @@ add_theme_support('soil-disable-trackbacks');
 add_theme_support('soil-js-to-footer');
 add_theme_support('soil-nice-search');
 add_theme_support('soil-relative-urls');
+
+
+// Require the plate.php file
+
+require __DIR__ . "/plate.php";
